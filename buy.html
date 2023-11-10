@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now</title>
+    <style>
+        #d {
+            background-color: rgb(232, 127, 192);
+            width: 400px;
+            margin-left: 430px;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1 style="text-align: center;">BUY NOW</h1>
+    <div id="di"></div>
+</body>
+<script>
+    let divv = document.getElementById("di");
+    divv.setAttribute("id", "d")
+    let a = JSON.parse(localStorage.getItem("buy"));
+
+    let h = document.createElement("h3");
+    h.innerText = a.title;
+
+    let img = document.createElement("img");
+    img.setAttribute("src", a.image);
+    img.style.width = "200px";
+    img.style.height = "200px";
+
+    let price = document.createElement("h1")
+    price.innerText = "Price: $" + a.price;
+
+    let des = document.createElement("p");
+    des.innerText = a.description;
+
+    divv.appendChild(img);
+    divv.appendChild(price);
+    divv.appendChild(h);
+    divv.appendChild(des);
+
+    let btn1=document.createElement("button");
+    btn1.innerText="Place Order";
+    divv.appendChild(btn1);
+    btn1.addEventListener("click",()=>{
+        window.location.assign("order.html")
+    })
+    let btn = document.createElement("button");
+    btn.innerText = "Back";
+    divv.appendChild(btn);
+    btn.addEventListener("click",()=>{
+        window.history.back()
+    })
+</script>
+
+</html>

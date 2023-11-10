@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+    <style>
+        #d {
+            
+            width: 550px;
+            height:100px;
+            background-color:cyan;
+            text-align: center;
+            /* display: flex;
+            justify-content: center; */
+            margin-left: 330px;
+            margin-top: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="di"></div>
+    <script>
+        let divv = document.getElementById("di");
+        divv.setAttribute("id","d")
+        let h = document.createElement("h1");
+        h.innerText = "Congratulations your Order has Placed";
+        divv.appendChild(h);
+        let btn = document.createElement("button")
+        btn.innerText = "Back";
+        divv.appendChild(btn);
+
+        btn.addEventListener("click", () => {
+            window.history.back();
+        })
+    </script>
+</body>
+
+</html>

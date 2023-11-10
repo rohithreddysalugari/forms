@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #i{
+            background-color:rgb(49, 52, 54);
+            width: 400px;
+            height: 300px;
+            margin-left: 450px;
+            margin-top: 100px;
+            border-radius: 20%;
+        }
+        .te{
+            position: relative;
+            top: 100px;
+            left: 110px;
+            
+        }
+        .pa{
+            position: relative;
+            top: 140px;
+            right: 65px;
+        }
+        #lo{
+            position: relative;
+            top: 180px;
+            right: 175px;
+        }
+        #lo:hover{
+            background-color: brown;
+        }
+        #h{
+            text-align: center;
+            position: relative;
+            top: 90px;
+            left: 20px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body style="background-image:url(https://t3.ftcdn.net/jpg/03/55/60/70/360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg);background-size: cover;";>
+    <h1 id="h">Login Form</h1>
+    <div id="di">
+        <form action="">
+            <input type="text" id="username" class="te" placeholder="Username">
+            <input type="text" id="password" class="pa" placeholder="Password">
+            <input type="submit" value="Login" id="lo">
+        </form>
+    </div>
+
+</body>
+<script>
+    let divv=document.getElementById("di");
+    divv.setAttribute("id","i")
+    let c = localStorage.getItem("register");
+    console.log(c);
+    c == null ? c = [] : c = JSON.parse(c);
+    let f = document.forms;
+    f[0].addEventListener("submit", (e) => {
+        e.preventDefault();
+        user = e.target[0].value;
+        console.log(user);
+        pass = e.target[1].value;
+        console.log(pass);
+        let d = c.find((i) => {
+            return i.username == user;
+        })
+
+        if (d) {
+            window.location.assign("DOM1.html")
+        }
+        else {
+            alert("credentials are not valid")
+        }
+        // let d=false;
+        // c.map((val, ind, arr) => {
+        //     if (user == val.username && pass == val.password) {
+        //         window.location.assign("DOM.html")
+        //         d=true;
+        //     }
+        //     else {
+        //         alert("not valid ")
+        //     }
+        //})
+
+
+    })
+</script>
+
+</html>

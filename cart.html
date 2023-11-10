@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        #d {
+            background-color: cadetblue;
+            width: 400px;
+            margin-left: 430px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">CART</h1>
+    <div id="di"></div>
+    <script>
+        let divv = document.getElementById("di")
+        divv.setAttribute("id", "d")
+        var a = localStorage.getItem("cart");
+        console.log(a);
+        a == null ? a = [] : a = JSON.parse(a);
+        a.map((val, ind, arr) => {
+            let img = document.createElement("img");
+            img.setAttribute("src", val.image);
+            img.style.width = "200px";
+            img.style.height = "200px";
+            let price = document.createElement("h3")
+            price.innerText = "Price: $" + val.price;
+            let h1creat = document.createElement("p");
+            h1creat.innerText = val.title;
+            divv.appendChild(img);
+            divv.appendChild(h1creat);
+            divv.appendChild(price);
+            
+        })
+        let btn1=document.createElement("button");
+    btn1.innerText="Place Order";
+    divv.appendChild(btn1);
+    btn1.addEventListener("click",()=>{
+        window.location.assign("order.html")
+    })
+    </script>
+</body>
+
+</html>
